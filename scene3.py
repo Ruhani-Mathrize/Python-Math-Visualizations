@@ -1,3 +1,9 @@
+"""
+Project: The Code of Binary / Meru Prastara Visualization
+Copyright (c) 2026 Ruhani Kashni (MathRize)
+License: MIT License (See LICENSE file for details)
+YouTube: https://www.youtube.com/@MathRize
+"""
 from manim import *
 
 class CinematicCombinatorics(Scene):
@@ -112,4 +118,5 @@ class CinematicCombinatorics(Scene):
         self.play(DrawBorderThenFill(hero_text), run_time=2)
         self.play(Create(box), FadeIn(desc))
         self.play(Indicate(hero_text, color=RED, scale_factor=1.2))
+
         self.wait(2)
