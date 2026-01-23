@@ -1,3 +1,9 @@
+"""
+Project: The Code of Binary / Meru Prastara Visualization
+Copyright (c) 2026 Ruhani Kashni (MathRize)
+License: MIT License (See LICENSE file for details)
+YouTube: https://www.youtube.com/@MathRize
+"""
 from manim import *
 import random
 import numpy as np
@@ -138,4 +144,5 @@ class StockMeruFinal(Scene):
             nodes_group.animate.set_glow_factor(0.8).set_color(STOCK_NEON)
         )
         
+
         self.wait(4)
