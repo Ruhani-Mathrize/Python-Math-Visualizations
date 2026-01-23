@@ -1,3 +1,9 @@
+"""
+Project: The Code of Binary / Meru Prastara Visualization
+Copyright (c) 2026 Ruhani Kashni (MathRize)
+License: MIT License (See LICENSE file for details)
+YouTube: https://www.youtube.com/@MathRize
+"""
 from manim import *
 
 class MeruEpicReveal(Scene):
@@ -87,5 +93,6 @@ class MeruEpicReveal(Scene):
             visual_rows.animate.scale(1.2), # Zoom in effect
             run_time=2
         )
+
 
         self.wait(4)
