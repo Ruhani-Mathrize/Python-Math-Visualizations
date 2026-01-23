@@ -1,3 +1,9 @@
+"""
+Project: The Code of Binary / Meru Prastara Visualization
+Copyright (c) 2026 Ruhani Kashni (MathRize)
+License: MIT License (See LICENSE file for details)
+YouTube: https://www.youtube.com/@MathRize
+"""
 from manim import *
 import numpy as np
 
@@ -170,5 +176,6 @@ class WeatherMeruCone(Scene):
         # Final Statement
         conclusion = Text("Prediction works on Binomial Distribution.", font_size=18, color=TEXT_COLOR).to_edge(DOWN, buff=0.5)
         self.play(Write(conclusion))
+
 
         self.wait(3)
