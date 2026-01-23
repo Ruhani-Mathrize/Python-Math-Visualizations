@@ -1,3 +1,9 @@
+"""
+Project: The Code of Binary / Meru Prastara Visualization
+Copyright (c) 2026 Ruhani Kashni (MathRize)
+License: MIT License (See LICENSE file for details)
+YouTube: https://www.youtube.com/@MathRize
+"""
 from manim import *
 
 class PingalaDecoding(Scene):
@@ -42,4 +48,5 @@ class PingalaDecoding(Scene):
         # 5. Final Result
         final_text = Text("BINARY DETECTED", font_size=36, color=BLUE).next_to(title, DOWN)
         self.play(Write(final_text))
+
         self.wait(2)
