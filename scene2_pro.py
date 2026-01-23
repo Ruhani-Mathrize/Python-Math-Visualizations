@@ -1,4 +1,10 @@
-from manim import *
+
+"""
+Project: The Code of Binary / Meru Prastara Visualization
+Copyright (c) 2026 Ruhani Kashni (MathRize)
+License: MIT License (See LICENSE file for details)
+YouTube: https://www.youtube.com/@MathRize
+"""from manim import *
 
 class MeruPrastaraPro(Scene):
     def construct(self):
@@ -52,4 +58,5 @@ class MeruPrastaraPro(Scene):
         final_text = Text("1 + 1 = 2", font_size=30, color=YELLOW).next_to(r2_mid, DOWN)
         self.play(Write(final_text))
         
+
         self.wait(2)
