@@ -1,0 +1,73 @@
+"""
+Project: The Code of Binary / Meru Prastara Visualization
+Copyright (c) 2026 Ruhani Kashni (MathRize)
+License: MIT License (See LICENSE file for details)
+YouTube: https://www.youtube.com/@MathRize
+"""
+from manim import *
+import numpy as np
+
+class ChampaMorph(Scene):
+    def construct(self):
+        # 1. Background Image Setup
+        # Image ka naam wahi rakhna jo folder mein hai (champa_cinematic.jpg)
+        flower_img = ImageMobject("champa_cinematic.jpg") 
+        flower_img.scale(1.3) 
+        
+        # Center Adjustment (Phool ko screen ke center par laana)
+        flower_img.shift(0.2 * UP + 0.1 * RIGHT) 
+        flower_img.set_opacity(0.4) # Thoda dark kiya taaki Red Color chamke
+
+        # 2. The Cinematic Math Curve
+        a = 2.2 
+        k = 5    
+        
+        # Curve creation with RED color and Glow
+        curve = ParametricFunction(
+            lambda t: np.array([
+                a * np.cos(k * t) * np.cos(t), 
+                a * np.cos(k * t) * np.sin(t), 
+                0
+            ]),
+            t_range=[0, TAU], 
+            color=RED # BLOOD RED COLOR
+        ).set_stroke(width=6, opacity=1) # Line moti aur solid
+
+        # GLOW EFFECT ADDED (Cinematic Feel)
+        curve.set_shadow(1.5) 
+
+        # 3. Rotation Fix (Angle Correction)
+        # Pichli video mein gap tha, usse bharne ke liye angle badhaya hai
+        curve.rotate(55 * DEGREES) 
+
+        # 4. The "Laser" Dot (Tip of the pen)
+        dot = Dot(color=PURE_RED, radius=0.12)
+        dot.move_to(curve.get_start())
+        dot.set_glow_factor(2) # Dot bahut zyada chamkega
+
+        # --- ANIMATION SEQUENCE ---
+        
+        # Image Fade In
+        self.play(FadeIn(flower_img), run_time=1.5)
+        self.wait(0.5)
+        
+        # Equation Text (Elegant Font)
+        eq_text = MathTex(r"r = \cos(5\theta)", color=RED).to_corner(UL).scale(1.2)
+        self.play(Write(eq_text), run_time=1)
+        
+        # DRAWING ANIMATION (Magical Feel)
+        # Rate_func=smooth ka matlab: Start slow -> Fast -> End slow
+        self.play(
+            MoveAlongPath(dot, curve),
+            Create(curve),
+            run_time=5, 
+            rate_func=smooth 
+        )
+        
+        # Final Pulse (Dhadkan) - Curve halka sa bada-chota hoga
+        self.play(
+            Indicate(curve, scale_factor=1.05, color=RED_A, run_time=1.5),
+            Flash(dot, color=RED, flash_radius=0.5)
+        )
+        
+        self.wait(2)
